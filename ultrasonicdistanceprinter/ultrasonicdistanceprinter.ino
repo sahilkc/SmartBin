@@ -1,3 +1,9 @@
+#define NOTIFYDISTANCE 10
+int tme=0;
+const int echopin=3;
+const int trigerpin=2;
+int distance=0;
+bool sentno=1;
 unsigned long lastfulltime=0;
 bool firsttime=1;
 void setup() {
