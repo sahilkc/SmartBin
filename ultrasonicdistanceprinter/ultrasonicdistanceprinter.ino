@@ -1,7 +1,8 @@
-#define NOTIFYDISTANCE 10
+#define NOTIFYDISTANCE 5
 int tme=0;
 int ledPin1=8;
 int ledPin2=9;
+int ledPin3=10;
 const int echopin=3;
 const int trigerpin=2;
 int distance=0;
@@ -13,6 +14,7 @@ void setup() {
   pinMode(8,OUTPUT);
   pinMode(9,OUTPUT);
   pinMode(2,OUTPUT);
+  pinMode(10,OUTPUT);
   Serial.begin(9600);
 }
 
@@ -40,5 +42,25 @@ if(distance<10)
   digitalWrite(ledPin2,LOW);
   delay(100);
   }
-//Serial.println(distance);
+  
+if(distance <= NOTIFYDISTANCE){
+  if(firsttime){
+   lastfulltime=millis(); 
+    firsttime=0;
+    Serial.write(11);
+    digitalWrite(ledPin3,HIGH);
+    delay(100);
+    digitalWrite(ledPin3,LOW);
+    delay(100);
+    
+  }else{
+      if( (millis()-lastfulltime)>= 60000){
+        Serial.write(11);
+        lastfulltime=millis();
+        }
+  }
+}
+
+delay(2);
+
 }
