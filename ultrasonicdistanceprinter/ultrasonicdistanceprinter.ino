@@ -1,7 +1,7 @@
 #define NOTIFYDISTANCE 10
 int tme=0;
 int ledPin1=8;
-int ledPin2=9
+int ledPin2=9;
 const int echopin=3;
 const int trigerpin=2;
 int distance=0;
