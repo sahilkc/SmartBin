@@ -47,7 +47,7 @@ if(distance <= NOTIFYDISTANCE){
   if(firsttime){
    lastfulltime=millis(); 
     firsttime=0;
-    Serial.write(11);
+    Serial.println(11);
     digitalWrite(ledPin3,HIGH);
     delay(100);
     digitalWrite(ledPin3,LOW);
@@ -55,12 +55,13 @@ if(distance <= NOTIFYDISTANCE){
     
   }else{
       if( (millis()-lastfulltime)>= 60000){
-        Serial.write(11);
+        Serial.println(11);
         lastfulltime=millis();
         }
   }
+ firsttime=1;
+ 
 }
 
 delay(2);
-
 }
